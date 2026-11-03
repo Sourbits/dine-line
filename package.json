@@ -1,0 +1,15 @@
+{
+  "name": "dine-line",
+  "version": "1.0.0",
+  "description": "AI phone receptionist website for small restaurants (SOEN 287 project)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "express": "^4.22.3"
+  }
+}
