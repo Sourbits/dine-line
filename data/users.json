@@ -4,5 +4,11 @@
     "email": "bob@test.com",
     "passwordHash": "$2b$10$KOheDBGZPqSTg2NgqJO0POcS8lqPmqO9YM4N6bTGCizXOmrAZcfIm",
     "createdAt": "2026-11-04T18:48:33.543Z"
+  },
+  {
+    "id": "96d2a855-a496-46c3-944b-7450612713cd",
+    "email": "steve@test.com",
+    "passwordHash": "$2b$10$MCAuUXC.haxZRwVeoqSSYuJlpzszohm8ua3x41TmY1XVYD1CS4RY2",
+    "createdAt": "2026-11-04T19:25:52.619Z"
   }
 ]
