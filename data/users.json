@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": "dfed06ad-35f7-4349-9974-d3fd6a79807a",
+    "email": "bob@test.com",
+    "passwordHash": "$2b$10$KOheDBGZPqSTg2NgqJO0POcS8lqPmqO9YM4N6bTGCizXOmrAZcfIm",
+    "createdAt": "2026-11-04T18:48:33.543Z"
+  }
+]
