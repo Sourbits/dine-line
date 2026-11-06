@@ -10,5 +10,11 @@
     "email": "steve@test.com",
     "passwordHash": "$2b$10$MCAuUXC.haxZRwVeoqSSYuJlpzszohm8ua3x41TmY1XVYD1CS4RY2",
     "createdAt": "2026-11-04T19:25:52.619Z"
+  },
+  {
+    "id": "d3a7c129-d6c1-411f-8806-50eb7cebba6d",
+    "email": "alex@test.com",
+    "passwordHash": "$2b$10$8QyMZttrn.5.8kpTrFbO.uF4c/a3V8J8PmPqYDea8OTHWDfe8NBCW",
+    "createdAt": "2026-11-06T16:18:40.292Z"
   }
 ]

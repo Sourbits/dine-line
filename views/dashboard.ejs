@@ -1,0 +1,15 @@
+<%- include('partials/header', { title: 'Dashboard' }) %>
+
+  <main>
+    <section>
+      <h1>Dashboard</h1>
+      <p>You are logged in as <strong><%= email %></strong>.</p>
+      <p>Your restaurant info and menu will appear here soon.</p>
+
+      <form action="/logout" method="POST">
+        <button type="submit" class="button">Log out</button>
+      </form>
+    </section>
+  </main>
+
+<%- include('partials/footer') %>
