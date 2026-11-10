@@ -30,7 +30,7 @@ function checkEmail() {
 function checkPassword() {
   const value = passwordInput.value;
   const message = value !== '' && value.length < PASSWORD_MIN
-    ? `Password must be at least ${PASSWORD_MIN} characters.`
+    ? `Password must be at least ${PASSWORD_MIN} characters long.`
     : '';
   showError(passwordInput, passwordError, message);
 }
@@ -38,7 +38,7 @@ function checkPassword() {
 function checkConfirm() {
   const value = confirmInput.value;
   const message = value !== '' && value !== passwordInput.value
-    ? 'Passwords do not match.'
+    ? 'These passwords do not match.'
     : '';
   showError(confirmInput, confirmError, message);
 }
