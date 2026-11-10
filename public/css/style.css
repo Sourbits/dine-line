@@ -111,3 +111,17 @@ form .button {
   color: #1b5e20;
   border: 1px solid #a5d6a7;
 }
+
+.field-error {
+  margin: 0.25rem 0 0;
+  color: #8b1e1e;
+  font-size: 0.9rem;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+input.invalid {
+  border-color: #8b1e1e;
+}

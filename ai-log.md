@@ -1,2 +1,3 @@
 Agent's commands failed because they ran from the wrong folder (nested dine-line). Fixed by opening the inner folder.
 the AI caught a mismatch I missed, the browser and server rules were out of sync. I changed password length minimum to 10 on the backend but forgot to change it on the HTML.
+The ai wrote the rule for password length in 3 different places, validation, register (js) and register (ejs). This isn't inheritely wrong, but is confusing code as rules should be written in only one place so theyre easier to edit later.
