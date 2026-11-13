@@ -4,10 +4,72 @@
     <section>
       <h1>Dashboard</h1>
       <p>You are logged in as <strong><%= email %></strong>.</p>
-      <p>Your restaurant info and menu will appear here soon.</p>
 
       <form action="/logout" method="POST">
-        <button type="submit" class="button">Log out</button>
+        <button type="submit" class="button secondary">Log out</button>
+      </form>
+    </section>
+
+    <section class="form-card wide">
+      <h2>Restaurant info</h2>
+
+      <% if (saved) { %>
+        <p class="message success" role="status">Your restaurant info was saved.</p>
+      <% } %>
+
+      <% if (errors.length > 0) { %>
+        <div class="message error" role="alert">
+          <ul>
+            <% errors.forEach((error) => { %>
+              <li><%= error %></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>
+
+      <% if (form.slug) { %>
+        <p>Your public page address: <code>/r/<%= form.slug %></code></p>
+      <% } %>
+
+      <form action="/dashboard/info" method="POST">
+        <label for="name">Restaurant name</label>
+        <input type="text" id="name" name="name" value="<%= form.name %>" maxlength="100" required>
+
+        <label for="phone">Transfer phone number</label>
+        <input type="tel" id="phone" name="phone" value="<%= form.phone %>" maxlength="20"
+               placeholder="514-555-1234" required>
+
+        <fieldset>
+          <legend>Opening hours</legend>
+          <% days.forEach((day) => { const h = form.hours[day.key]; %>
+            <fieldset class="day">
+              <legend><%= day.label %></legend>
+
+              <label for="<%= day.key %>_open">Opens</label>
+              <input type="time" id="<%= day.key %>_open" name="<%= day.key %>_open" value="<%= h.open %>">
+
+              <label for="<%= day.key %>_close">Closes</label>
+              <input type="time" id="<%= day.key %>_close" name="<%= day.key %>_close" value="<%= h.close %>">
+
+              <div class="checkbox">
+                <input type="checkbox" id="<%= day.key %>_closed" name="<%= day.key %>_closed"
+                       <%= h.closed ? 'checked' : '' %>>
+                <label for="<%= day.key %>_closed">Closed</label>
+              </div>
+            </fieldset>
+          <% }) %>
+        </fieldset>
+
+        <label for="reservationPolicy">Reservation policy</label>
+        <textarea id="reservationPolicy" name="reservationPolicy" rows="3" maxlength="1000"><%= form.policies.reservation %></textarea>
+
+        <label for="cancellationPolicy">Cancellation policy</label>
+        <textarea id="cancellationPolicy" name="cancellationPolicy" rows="3" maxlength="1000"><%= form.policies.cancellation %></textarea>
+
+        <label for="otherPolicy">Other policies</label>
+        <textarea id="otherPolicy" name="otherPolicy" rows="3" maxlength="1000"><%= form.policies.other %></textarea>
+
+        <button type="submit" class="button">Save restaurant info</button>
       </form>
     </section>
   </main>
