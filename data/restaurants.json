@@ -1,1 +1,60 @@
-[]
+[
+  {
+    "id": "d939e3ee-f909-43ac-9562-fb93cd80c9b3",
+    "ownerId": "d3a7c129-d6c1-411f-8806-50eb7cebba6d",
+    "name": "Caleb Diner",
+    "slug": "caleb-diner",
+    "phone": "805-235-2247",
+    "hours": {
+      "mon": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "tue": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "wed": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "thu": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "fri": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "sat": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "sun": {
+        "open": "",
+        "close": "",
+        "closed": true
+      }
+    },
+    "policies": {
+      "reservation": "",
+      "cancellation": "",
+      "other": ""
+    },
+    "menu": [
+      {
+        "id": "9b2b1fc3-d21f-45d4-af54-d41813ee5ad7",
+        "name": "Filet Mignon",
+        "price": 1000,
+        "description": "Juiciest steak of all time",
+        "allergens": []
+      }
+    ]
+  }
+]

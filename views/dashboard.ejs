@@ -8,14 +8,14 @@
       <form action="/logout" method="POST">
         <button type="submit" class="button secondary">Log out</button>
       </form>
+
+      <% if (savedMessage) { %>
+        <p class="message success" role="status"><%= savedMessage %></p>
+      <% } %>
     </section>
 
     <section class="form-card wide">
       <h2>Restaurant info</h2>
-
-      <% if (saved) { %>
-        <p class="message success" role="status">Your restaurant info was saved.</p>
-      <% } %>
 
       <% if (errors.length > 0) { %>
         <div class="message error" role="alert">
@@ -71,6 +71,99 @@
 
         <button type="submit" class="button">Save restaurant info</button>
       </form>
+    </section>
+
+    <section class="form-card wide" id="menu">
+      <h2>Menu</h2>
+
+      <% if (!restaurant) { %>
+        <% if (menuError) { %>
+          <p class="message error" role="alert"><%= menuError.errors[0] %></p>
+        <% } else { %>
+          <p>Please fill in and save your restaurant info above before adding menu items.</p>
+        <% } %>
+      <% } else { %>
+
+        <% if (restaurant.menu.length === 0) { %>
+          <p>Your menu is empty. Add your first item below.</p>
+        <% } %>
+
+        <% restaurant.menu.forEach((item) => {
+             const failed = menuError && menuError.target === item.id;
+             const v = (failed && menuError.values) || {
+               name: item.name,
+               price: item.price.toFixed(2),
+               description: item.description,
+               allergens: item.allergens.join(', '),
+             };
+             const p = 'item-' + item.id; %>
+          <article class="menu-item">
+            <h3><%= item.name %> <span class="price">$<%= item.price.toFixed(2) %></span></h3>
+
+            <% if (failed) { %>
+              <div class="message error" role="alert">
+                <ul>
+                  <% menuError.errors.forEach((error) => { %>
+                    <li><%= error %></li>
+                  <% }) %>
+                </ul>
+              </div>
+            <% } %>
+
+            <form action="/dashboard/menu/<%= item.id %>/edit" method="POST">
+              <label for="<%= p %>-name">Name</label>
+              <input type="text" id="<%= p %>-name" name="name" value="<%= v.name %>" maxlength="100" required>
+
+              <label for="<%= p %>-price">Price ($)</label>
+              <input type="text" inputmode="decimal" id="<%= p %>-price" name="price" value="<%= v.price %>" required>
+
+              <label for="<%= p %>-description">Description</label>
+              <textarea id="<%= p %>-description" name="description" rows="2" maxlength="500"><%= v.description %></textarea>
+
+              <label for="<%= p %>-allergens">Allergens (separated by commas)</label>
+              <input type="text" id="<%= p %>-allergens" name="allergens" value="<%= v.allergens %>" maxlength="300">
+
+              <button type="submit" class="button">Save changes</button>
+            </form>
+
+            <form action="/dashboard/menu/<%= item.id %>/delete" method="POST">
+              <button type="submit" class="button secondary">Delete</button>
+            </form>
+          </article>
+        <% }) %>
+
+        <% const addFailed = menuError && menuError.target === 'add';
+           const a = addFailed ? menuError.values : { name: '', price: '', description: '', allergens: '' }; %>
+        <h3>Add a menu item</h3>
+
+        <% if (addFailed) { %>
+          <div class="message error" role="alert">
+            <ul>
+              <% menuError.errors.forEach((error) => { %>
+                <li><%= error %></li>
+              <% }) %>
+            </ul>
+          </div>
+        <% } %>
+
+        <form action="/dashboard/menu" method="POST">
+          <label for="new-name">Name</label>
+          <input type="text" id="new-name" name="name" value="<%= a.name %>" maxlength="100" required>
+
+          <label for="new-price">Price ($)</label>
+          <input type="text" inputmode="decimal" id="new-price" name="price" value="<%= a.price %>"
+                 placeholder="12.50" required>
+
+          <label for="new-description">Description</label>
+          <textarea id="new-description" name="description" rows="2" maxlength="500"><%= a.description %></textarea>
+
+          <label for="new-allergens">Allergens (separated by commas)</label>
+          <input type="text" id="new-allergens" name="allergens" value="<%= a.allergens %>" maxlength="300"
+                 placeholder="nuts, dairy">
+
+          <button type="submit" class="button">Add item</button>
+        </form>
+      <% } %>
     </section>
   </main>
 

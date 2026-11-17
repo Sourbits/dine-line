@@ -179,3 +179,24 @@ fieldset.day label {
   width: 1.1rem;
   height: 1.1rem;
 }
+
+.menu-item {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.menu-item h3 {
+  margin-top: 0;
+}
+
+.menu-item .price {
+  font-weight: normal;
+  color: #555;
+}
+
+.menu-item form + form .button {
+  margin-top: 0.75rem;
+}
