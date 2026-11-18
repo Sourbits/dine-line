@@ -6,7 +6,7 @@ This repository is the website part, built for SOEN 287 (Fall 2026).
 
 ## Team members
 
-- [Your name here]
+- Alexis Boudreau
 
 ## Tech stack
 
