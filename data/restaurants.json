@@ -56,5 +56,55 @@
         "allergens": []
       }
     ]
+  },
+  {
+    "id": "6594e66a-ec37-49ad-9400-15fd59ce11f9",
+    "ownerId": "8b45e38f-53b2-4c5d-a0d2-be31f95eb068",
+    "name": "\"><b>HACKED</b>",
+    "slug": "b-hacked-b",
+    "phone": "8052352246",
+    "hours": {
+      "mon": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "tue": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "wed": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "thu": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "fri": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "sat": {
+        "open": "",
+        "close": "",
+        "closed": true
+      },
+      "sun": {
+        "open": "",
+        "close": "",
+        "closed": true
+      }
+    },
+    "policies": {
+      "reservation": "",
+      "cancellation": "",
+      "other": ""
+    },
+    "menu": []
   }
 ]
